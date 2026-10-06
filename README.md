@@ -1,4 +1,4 @@
-# duyi-service
+# mumu-service
 
 基于 **FastAPI + SQLAlchemy 2.0 (async) + PostgreSQL** 的电商后端服务（商品 / 分类 / SKU），采用 uv workspace 管理的多包工程。
 
@@ -48,7 +48,7 @@ docker run -d --name pg_db \
   -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=123123 \
   -p 5432:5432 -v pgdata:/var/lib/postgresql/data postgres:16
 
-docker exec -it pg_db psql -U admin -c "CREATE DATABASE duyi_db;"
+docker exec -it pg_db psql -U admin -c "CREATE DATABASE mumu_db;"
 ```
 
 ### 2. 安装依赖

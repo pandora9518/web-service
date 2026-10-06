@@ -1,4 +1,4 @@
-"""业务逻辑层演示脚本，按教学顺序展示 service 层的核心用法。
+"""业务逻辑层演示脚本，演示 service 层的核心用法。
 
 运行方式：
     uv run --package web-service python apps/web-service/app/service/main.py

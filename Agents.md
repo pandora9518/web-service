@@ -1,4 +1,4 @@
-# duyi-service 工程说明
+# mumu-service 工程说明
 
 ## 技术架构
 
