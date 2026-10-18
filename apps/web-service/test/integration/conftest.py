@@ -6,7 +6,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 load_dotenv(Path(__file__).resolve().parent.parent.parent.parent.parent / ".env.test")
-os.environ["DB_NAME"] = "duyi_integration_test_db"
+os.environ["DB_NAME"] = "mumu_integration_test_db"
 
 from app.core.config import DBSettings
 
