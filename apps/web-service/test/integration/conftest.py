@@ -1,12 +1,13 @@
 import asyncio
+import os
 from contextlib import contextmanager
 from pathlib import Path
-import os
 
 from dotenv import load_dotenv
 
 load_dotenv(Path(__file__).resolve().parent.parent.parent.parent.parent / ".env.test")
-os.environ["DB_NAME"] = "mumu_test_db"
+os.environ["DB_NAME"] = "duyi_integration_test_db"
+
 from app.core.config import DBSettings
 
 db_settings = DBSettings()
@@ -101,6 +102,22 @@ async def db_session():
         yield session
 
     await engine.dispose()
+
+
+@pytest.fixture
+async def auth_token(db_session):
+    from app.schema.user import UserLogin, UserRegister
+    from app.service.user_service import UserService
+
+    svc = UserService(db_session)
+    await svc.register(UserRegister(username="testuser", password="test123456"))
+    result = await svc.login(UserLogin(username="testuser", password="test123456"))
+    return result.access_token
+
+
+@pytest.fixture
+def auth_headers(auth_token):
+    return {"Authorization": f"Bearer {auth_token}"}
 
 
 @pytest.fixture
