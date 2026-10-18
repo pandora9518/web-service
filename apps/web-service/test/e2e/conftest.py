@@ -7,8 +7,13 @@ from contextlib import contextmanager
 
 # ─── 必须在任何 app 导入之前设置环境变量 ───
 
-os.environ.setdefault("DB_NAME", "duyi_test_db")
-from app.core.config import db_settings
+from dotenv import load_dotenv
+
+load_dotenv(Path(__file__).resolve().parent.parent.parent.parent.parent / ".env.test")
+os.environ["DB_NAME"] = "mumu_e2e_db"
+from app.core.config import DBSettings
+
+db_settings = DBSettings()
 
 import pytest
 import psycopg2
