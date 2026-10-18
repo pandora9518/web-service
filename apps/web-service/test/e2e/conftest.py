@@ -9,7 +9,7 @@ from contextlib import contextmanager
 from dotenv import load_dotenv
 
 load_dotenv(Path(__file__).resolve().parent.parent.parent.parent.parent / ".env.test")
-os.environ["DB_NAME"] = "duyi_e2e_test_db"
+os.environ["DB_NAME"] = "mumu_e2e_test_db"
 from app.core.config import DBSettings
 
 db_settings = DBSettings()
